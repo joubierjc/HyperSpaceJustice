@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
         nextFire += Time.deltaTime;
         if (Input.GetKey(shotKey) && nextFire > fireRate) {
             nextFire = 0;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Instantiate(shot, shotSpawn.position, Quaternion.identity);
         }
     }
 
