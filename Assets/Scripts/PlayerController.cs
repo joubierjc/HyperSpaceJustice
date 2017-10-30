@@ -6,17 +6,34 @@ public class Boundary {
 }
 
 public class PlayerController : MonoBehaviour {
-    public float speed;
-    public float tilt;
     public Boundary boundary;
 
+    public float speed;
+    public float tilt;
+
+    public float fireRate;
+    public GameObject shot;
+    public Transform shotSpawn;
+
+    public KeyCode shotKey;
+
     private Rigidbody rb;
+    private float nextFire;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        nextFire = fireRate;
     }
 
-    void FixedUpdate() {
+    private void Update() {
+        nextFire += Time.deltaTime;
+        if (Input.GetKey(shotKey) && nextFire > fireRate) {
+            nextFire = 0;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        }
+    }
+
+    private void FixedUpdate() {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 

@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808439379843070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.45}
+  m_LocalPosition: {x: 0, y: 0, z: 0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4815360836323488}
@@ -94,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609720277643844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4717055239806358}
@@ -183,10 +183,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fba2cdf2b0f87141bf88f97e8eceee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  tilt: 3
   boundary:
     xMin: -5
     xMax: 5
     zMin: -5
     zMax: 5
+  speed: 10
+  tilt: 3
+  fireRate: 0.2
+  shot: {fileID: 1342842162505132, guid: a2dabd3b2eede5b429728d70af0e06d9, type: 2}
+  shotSpawn: {fileID: 4013431004969024}
+  shotKey: 120
