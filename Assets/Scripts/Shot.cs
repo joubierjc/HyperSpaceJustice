@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Shot : MonoBehaviour {
-
     public float speed;
 
     private Rigidbody rb;
@@ -12,5 +9,4 @@ public class Shot : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         rb.velocity = transform.forward * speed;
     }
-
 }
