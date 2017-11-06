@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Shot : MonoBehaviour {
+public class Mover : MonoBehaviour {
     public float speed;
 
     private Rigidbody rb;

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54882930422584512}
   - component: {fileID: 114123892572565552}
   - component: {fileID: 114398948315888572}
+  - component: {fileID: 114806744881040480}
   m_Layer: 0
   m_Name: Hazard
   m_TagString: Untagged
@@ -95,7 +96,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -136,3 +137,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 3
+--- !u!114 &114806744881040480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1724161837144840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46af48a91cb021943a4c709b391b4969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -5
