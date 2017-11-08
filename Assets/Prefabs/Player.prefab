@@ -37,8 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4815360836323488}
   - component: {fileID: 54041782210929854}
-  - component: {fileID: 114846021369186428}
   - component: {fileID: 136905293960904656}
+  - component: {fileID: 114846021369186428}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -175,7 +175,8 @@ MonoBehaviour:
     zMin: -5
     zMax: 5
   speed: 10
-  tilt: 3
+  tilt: 30
+  smoothSpeed: 5
   fireRate: 0.2
   shot: {fileID: 1342842162505132, guid: a2dabd3b2eede5b429728d70af0e06d9, type: 2}
   shotSpawn: {fileID: 4013431004969024}
