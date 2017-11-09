@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
         UpdateScore();
         StartCoroutine(SpawnWaves());
     }
-    
+
     public void AddScore(int value) {
         score += value;
         UpdateScore();

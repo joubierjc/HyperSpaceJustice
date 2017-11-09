@@ -42,6 +42,12 @@ public class PlayerController : MonoBehaviour {
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
 
+        rb.position = new Vector3(
+            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+            rb.position.y,
+            Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
+        );
+
         rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(0.0f, 0.0f, moveHorizontal * -tilt), smoothSpeed * Time.deltaTime);
     }
 }
