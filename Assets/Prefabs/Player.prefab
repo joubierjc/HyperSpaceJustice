@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundary:
-    xMin: -8
-    xMax: 8
+    xMin: -7
+    xMax: 7
     zMin: -4.5
     zMax: 10
   speed: 10
