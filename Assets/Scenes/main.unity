@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazard: {fileID: 1724161837144840, guid: d911735107f3e9348a38eabc4fb324b8, type: 2}
-  spawnValues: {x: 7, y: 0, z: 10}
+  spawnValues: {x: 7, y: 0, z: 15}
   hazardCount: 5
   spawnWait: 1
   startWait: 1

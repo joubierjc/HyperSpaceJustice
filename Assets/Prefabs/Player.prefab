@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4013431004969024}
+  - component: {fileID: 114592018363912462}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -158,6 +159,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114592018363912462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808439379843070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17208050df21db4ab9cda9b21a32b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: ca8c8fd8d493e3849a3e165cc9d721cf, type: 2}
 --- !u!114 &114846021369186428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,9 +190,8 @@ MonoBehaviour:
   speed: 10
   tilt: 30
   smoothSpeed: 5
-  fireRate: 0.2
-  shot: {fileID: 1342842162505132, guid: a2dabd3b2eede5b429728d70af0e06d9, type: 2}
-  shotSpawn: {fileID: 4013431004969024}
+  attackSpeed: 5
+  spread: 5
   shotKey: 120
 --- !u!136 &136905293960904656
 CapsuleCollider:

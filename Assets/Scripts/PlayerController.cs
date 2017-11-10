@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [System.Serializable]
 public class Boundary {
@@ -13,26 +14,15 @@ public class PlayerController : MonoBehaviour {
     [Range(0,10)]
     public float smoothSpeed;
 
-    public float fireRate;
-    public GameObject shot;
-    public Transform shotSpawn;
+    public float attackSpeed;
+    public float spread;
 
     public KeyCode shotKey;
 
     private Rigidbody rb;
-    private float nextFire;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
-        nextFire = fireRate;
-    }
-
-    private void Update() {
-        nextFire += Time.deltaTime;
-        if (Input.GetKey(shotKey) && nextFire > fireRate) {
-            nextFire = 0;
-            Instantiate(shot, shotSpawn.position, Quaternion.identity);
-        }
     }
 
     private void FixedUpdate() {

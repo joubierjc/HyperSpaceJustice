@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23c3162d80c0714a9448ff637a32b56, type: 3}
+  m_Name: MachineGun
+  m_EditorClassIdentifier: 
+  mode: 1
+  shot: {fileID: 1342842162505132, guid: a2dabd3b2eede5b429728d70af0e06d9, type: 2}
+  projectileCount: 1
+  projectileSpeed: 15
+  projectileDamage: 0
+  fireRate: 5
+  spread: 0
