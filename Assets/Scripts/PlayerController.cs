@@ -9,20 +9,46 @@ public class Boundary {
 public class PlayerController : MonoBehaviour {
     public Boundary boundary;
 
+    public Transform shotTransform;
+
+    public Weapon weapon;
+    public GameObject bullet;
+
     public float speed;
     public float tilt;
     [Range(0,10)]
     public float smoothSpeed;
-
-    public float attackSpeed;
-    public float spread;
-
+    
     public KeyCode shotKey;
 
     private Rigidbody rb;
+    private float nextFire;
+
+    #region Singleton
+    public static PlayerController instance {
+        get {
+            if (_instance == null) {
+                _instance = FindObjectOfType<PlayerController>();
+            }
+            return _instance;
+        }
+    }
+    static PlayerController _instance;
+
+    void Awake() {
+        _instance = this;
+    }
+    #endregion
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update() {
+        nextFire += Time.deltaTime;
+        if (nextFire > weapon.GetFireRate()) {
+            weapon.Fire();
+        }
     }
 
     private void FixedUpdate() {
@@ -39,5 +65,9 @@ public class PlayerController : MonoBehaviour {
         );
 
         rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(0.0f, 0.0f, moveHorizontal * -tilt), smoothSpeed * Time.deltaTime);
+    }
+
+    public void ResetNextFire() {
+        nextFire = 0;
     }
 }

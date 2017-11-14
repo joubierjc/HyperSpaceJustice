@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114240384557014434}
   - component: {fileID: 96146731662242150}
   m_Layer: 0
-  m_Name: Shot
+  m_Name: SimpleBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,4 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46af48a91cb021943a4c709b391b4969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableRandomSpeed: 0
+  minSpeed: 0
   speed: 15
