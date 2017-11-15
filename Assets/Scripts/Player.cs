@@ -6,7 +6,7 @@ public class Boundary {
     public float xMin, xMax, zMin, zMax;
 }
 
-public class PlayerController : MonoBehaviour {
+public class Player : MonoBehaviour {
     public Boundary boundary;
 
     public Transform shotTransform;
@@ -25,15 +25,15 @@ public class PlayerController : MonoBehaviour {
     private float nextFire;
 
     #region Singleton
-    public static PlayerController instance {
+    public static Player instance {
         get {
             if (_instance == null) {
-                _instance = FindObjectOfType<PlayerController>();
+                _instance = FindObjectOfType<Player>();
             }
             return _instance;
         }
     }
-    static PlayerController _instance;
+    static Player _instance;
 
     void Awake() {
         _instance = this;
