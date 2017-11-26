@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54882930422584512}
   - component: {fileID: 114123892572565552}
   - component: {fileID: 114398948315888572}
-  - component: {fileID: 114806744881040480}
+  - component: {fileID: 114599792128289644}
   m_Layer: 0
   m_Name: Hazard
   m_TagString: Untagged
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 3
---- !u!114 &114806744881040480
+--- !u!114 &114599792128289644
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -146,9 +146,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1724161837144840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46af48a91cb021943a4c709b391b4969, type: 3}
+  m_Script: {fileID: 11500000, guid: d7aa3869ce4a7224c898eaf6689ba2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableRandomSpeed: 0
-  minSpeed: 0
-  speed: -5
+  speed: -3
+  damage: 1

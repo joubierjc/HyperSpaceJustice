@@ -6,6 +6,7 @@ public class Shot : MonoBehaviour {
     
     public float speed;
     public float damage;
+    public string firedBy;
 
     private Rigidbody rb;
 

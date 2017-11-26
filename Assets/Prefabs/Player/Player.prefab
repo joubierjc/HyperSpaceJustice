@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114846021369186428}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,12 +174,11 @@ MonoBehaviour:
     xMax: 8
     zMin: -4.5
     zMax: 10
-  stats:
-    _health: 10
-    damage: 1
   shotTransform: {fileID: 4013431004969024}
   weapon: {fileID: 11400000, guid: 5da4123a61139a641adaa1d90c4428fe, type: 2}
   bullet: {fileID: 1342842162505132, guid: a2dabd3b2eede5b429728d70af0e06d9, type: 2}
+  health: 10
+  damage: 1
   speed: 10
   tilt: 30
   smoothSpeed: 5

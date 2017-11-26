@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Auto Weapon", menuName = "WeaponSystem/AutoWeapon", order = 1)]
 public class AutoWeapon : Weapon {
-    public override void Fire() {
-        if (Input.GetKey(Player.instance.shotKey)) {
-            Player.instance.ResetNextFire();
+    public override void Fire(GameObject bullet, Transform shotTransform, bool isFirePressed, Action callback) {
+        if (isFirePressed) {
             for (var i = 0; i < bulletCount; i++) {
-                Instantiate(Player.instance.bullet, Player.instance.shotTransform.position, Quaternion.Euler(0.0f, Random.Range(-spread, spread), 0.0f));
+                var go = Instantiate(bullet, shotTransform.position, Quaternion.Euler(0.0f, UnityEngine.Random.Range(-spread, spread), 0.0f));
+                SetBulletInfo(go);
             }
+            callback();
         }
     }
 }

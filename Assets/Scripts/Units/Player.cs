@@ -1,16 +1,27 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
     public Boundary boundary;
-
-    public Stats stats;
 
     public Transform shotTransform;
 
     public Weapon weapon;
     public GameObject bullet;
 
+    private float _health;
+    public float health {
+        get {
+            return _health;
+        }
+        set {
+            _health = value;
+            OnHealthChanged();
+        }
+    }
     public float speed;
     public float tilt;
     [Range(0,10)]
@@ -21,35 +32,15 @@ public class Player : MonoBehaviour {
     private Rigidbody rb;
     private float nextFire;
 
-    #region Singleton
-    public static Player instance {
-        get {
-            if (_instance == null) {
-                _instance = FindObjectOfType<Player>();
-            }
-            return _instance;
-        }
-    }
-    private static Player _instance;
-
-    void Awake() {
-        _instance = this;
-    }
-    #endregion
-
     private void Start() {
         rb = GetComponent<Rigidbody>();
-        stats.OnHealthChanged += OnHealthChanged;
+        weapon.attachedTo = tag;
     }
-
-    private void OnDestroy() {
-        stats.OnHealthChanged -= OnHealthChanged;
-    }
-
+    
     private void Update() {
         nextFire += Time.deltaTime;
         if (nextFire > weapon.GetFireRate()) {
-            weapon.Fire();
+            weapon.Fire(bullet, shotTransform, Input.GetKey(shotKey), ResetNextFire);
         }
     }
 
@@ -69,26 +60,30 @@ public class Player : MonoBehaviour {
         rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(0.0f, 0.0f, moveHorizontal * -tilt), smoothSpeed * Time.deltaTime);
     }
 
-    public void ResetNextFire() {
+    private void ResetNextFire() {
         nextFire = 0;
     }
 
-    private void OnHealthChanged(float health) {
+    private void OnHealthChanged() {
         if(health <= 0) {
             Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == gameObject.tag) {
+        if (other.tag == "Boundaries") {
             return;
         }
 
-        Shot shot = other.gameObject.GetComponent<Shot>();
-        if (shot != null) {
-            stats.health -= shot.damage;
+        if (other.tag == "Shot") {
+            var shot = other.gameObject.GetComponent<Shot>();
+            if(shot.firedBy == tag) {
+                return;
+            }
+            health -= shot.damage;
+            Destroy(other.gameObject);
+            return;
         }
-
-        Destroy(other.gameObject);
+        
     }
 }
