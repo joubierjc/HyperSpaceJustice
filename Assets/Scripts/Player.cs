@@ -1,13 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-[System.Serializable]
-public class Boundary {
-    public float xMin, xMax, zMin, zMax;
-}
-
 public class Player : MonoBehaviour {
     public Boundary boundary;
+
+    public Stats stats;
 
     public Transform shotTransform;
 
@@ -33,7 +30,7 @@ public class Player : MonoBehaviour {
             return _instance;
         }
     }
-    static Player _instance;
+    private static Player _instance;
 
     void Awake() {
         _instance = this;
@@ -42,6 +39,11 @@ public class Player : MonoBehaviour {
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        stats.OnHealthChanged += OnHealthChanged;
+    }
+
+    private void OnDestroy() {
+        stats.OnHealthChanged -= OnHealthChanged;
     }
 
     private void Update() {
@@ -69,5 +71,24 @@ public class Player : MonoBehaviour {
 
     public void ResetNextFire() {
         nextFire = 0;
+    }
+
+    private void OnHealthChanged(float health) {
+        if(health <= 0) {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == gameObject.tag) {
+            return;
+        }
+
+        Shot shot = other.gameObject.GetComponent<Shot>();
+        if (shot != null) {
+            stats.health -= shot.damage;
+        }
+
+        Destroy(other.gameObject);
     }
 }

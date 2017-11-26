@@ -8,12 +8,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon", menuName = "WeaponSystem/EmptyWeapon", order = 1)]
 public class Weapon : ScriptableObject {
     public int bulletCount;
-    public float bulletSpeed;
-    public float bulletDamage;
     public float bulletPerSecond;
     [Range(0, 180)]
     public float spread;
-
+    
     public virtual void Fire() {
         // Maybe a use later on.
     }
