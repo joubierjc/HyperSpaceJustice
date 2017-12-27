@@ -1,5 +1,8 @@
 # SCHMUP
 
-TODO:
-- Rework Hazard to implement stats
-- Add a Boss
+## TODO:
+- [ ] Re-Do everything from scratch.
+- [ ] Add some background effects
+- [ ] Make more ennemies
+- [ ] Make a boss
+- [ ] Make more items
