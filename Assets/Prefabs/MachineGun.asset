@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b256f71339a36b4cb0a1f06b9f0e806, type: 3}
   m_Name: MachineGun
   m_EditorClassIdentifier: 
-  attacksPerSecond: 100
-  bulletsPerAttack: 10
-  spread: 180
+  attacksPerSecond: 10
+  bulletsPerAttack: 1
+  spread: 5
   bullet: {fileID: 1213762645639886, guid: 95b693f435a27314884b391d09c31d05, type: 2}
