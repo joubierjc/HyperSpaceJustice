@@ -186,7 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
-  damage: 1
   speed: 10
 --- !u!114 &114765837694369266
 MonoBehaviour:
@@ -199,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab71d9eaa7fdb44e868191898344c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 10bbc509ec016cc4d933aa6031b3af02, type: 2}
   firePoints:
   - {fileID: 4884399536806186}
 --- !u!114 &114981701251572972
