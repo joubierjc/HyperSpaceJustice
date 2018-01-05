@@ -15,7 +15,7 @@ public class AutoWeapon : Weapon {
                 Instantiate(
                     bullet,
                     point.position,
-                    Quaternion.Euler(0.0f, 0.0f, Random.Range(point.eulerAngles.z - spread, point.eulerAngles.z + spread))
+                    Quaternion.Euler(point.eulerAngles.x, point.eulerAngles.y, Random.Range(point.eulerAngles.z - spread, point.eulerAngles.z + spread))
                 );
             }
         }

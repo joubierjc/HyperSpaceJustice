@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
         // Movements
         var horizontal = Input.GetAxis("Horizontal") * Time.deltaTime * stat.speed;
         var vertical = Input.GetAxis("Vertical") * Time.deltaTime * stat.speed;
-        transform.Translate(new Vector3(horizontal, vertical));
+        transform.Translate(new Vector3(horizontal, vertical), Space.World);
 
         // Firing
         if(weapsys.CanFire()) {
