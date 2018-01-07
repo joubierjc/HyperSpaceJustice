@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour {
     public Weapon weapon;
     public Transform[] firePoints;
 
     private float nextFire;
+    private StatsHolder stats;
 
     private void Start() {
         nextFire = 0f;
+        stats = GetComponent<StatsHolder>();
     }
 
     private void Update() {
@@ -17,7 +17,8 @@ public class WeaponSystem : MonoBehaviour {
     }
 
     public void Fire() {
-        weapon.SpawnShots(firePoints);
+        // TODO: modify spawnshots to implements bonus damage or spread --> Later
+        weapon.SpawnShots(firePoints, stats.isPlayer);
     }
 
     public bool CanFire() {

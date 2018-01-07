@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapons/Auto Weapon")]
 public class AutoWeapon : Weapon {
@@ -8,15 +6,16 @@ public class AutoWeapon : Weapon {
         return Input.GetKey(KeyCode.X); // TODO Input manager or smth
     }
 
-    public override void SpawnShots(Transform[] firePoints) {
+    public override void SpawnShots(Transform[] firePoints, bool isFromPlayer = false) {
         for (int i = 0; i < firePoints.Length; i++) {
             for (int j = 0; j < bulletsPerAttack; j++) {
                 var point = firePoints[i];
-                Instantiate(
+                var b = Instantiate(
                     bullet,
                     point.position,
                     Quaternion.Euler(point.eulerAngles.x, point.eulerAngles.y, Random.Range(point.eulerAngles.z - spread, point.eulerAngles.z + spread))
                 );
+                b.GetComponent<BulletController>().isFromPlayer = isFromPlayer;
             }
         }
     }

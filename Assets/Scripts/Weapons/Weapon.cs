@@ -8,9 +8,9 @@ public abstract class Weapon : ScriptableObject {
     [Range(0, 180)]
     public float spread;
     public GameObject bullet;
-    
+
     public abstract bool CheckFireKey();
-    public abstract void SpawnShots(Transform[] firePoints);
+    public abstract void SpawnShots(Transform[] firePoints, bool isFromPlayer);
 
     public float Interval() {
         return 1f / attacksPerSecond;

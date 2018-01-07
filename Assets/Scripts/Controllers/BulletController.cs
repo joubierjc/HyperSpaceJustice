@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ConstantMover : MonoBehaviour {
+public class BulletController : MonoBehaviour {
+    public bool isFromPlayer;
     public Vector3 direction;
+    public float damage;
     public float speed;
 
     private void Start() {
