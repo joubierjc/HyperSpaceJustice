@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    public Border border;
 
     private StatsHolder stats;
     private WeaponSystem weapsys;
@@ -21,8 +20,14 @@ public class PlayerController : MonoBehaviour {
         var vertical = Input.GetAxis("Vertical") * Time.deltaTime * stats.speed;
         transform.Translate(new Vector3(horizontal, vertical), Space.World);
 
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, border.xMin, border.xMax),
+            Mathf.Clamp(transform.position.y, border.yMin, border.yMax),
+            0f
+        );
+
         // Firing
-        if(weapsys.CanFire()) {
+        if (weapsys.CanFire()) {
             weapsys.Fire();
         }
     }
@@ -32,6 +37,7 @@ public class PlayerController : MonoBehaviour {
         if(bullet) {
             if (!bullet.isFromPlayer) {
                 stats.Health -= bullet.damage;
+                Destroy(other.gameObject);
             }
         }
     }
