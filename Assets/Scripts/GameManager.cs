@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
 
-    [HideInInspector]
+    // [HideInInspector]
     public int enemiesCounter;
 
+    public GameObject bossSpawner;
     public GameObject[] spawners;
     public float waitBeforeStart;
     public float waitBetweenWave;
@@ -30,7 +31,6 @@ public class GameManager : MonoBehaviour {
         if (waves.Length > 0) {
             // On a des vagues, alors on les spawn.
             currentIndex = 0;
-            waitEnemiesDestruction = new WaitForSeconds(1);
             StartCoroutine(SpawnWaves());
         }
     }
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
             for (int i = 0; i < waves[currentIndex].numberOfEnnemies; i++) {
                 Instantiate(
                     waves[currentIndex].enemies[Random.Range(0, waves[currentIndex].enemies.Length)],
-                    spawners[Random.Range(0, spawners.Length)].transform.position,
+                    !waves[currentIndex].bossWave ? spawners[Random.Range(0, spawners.Length)].transform.position : bossSpawner.transform.position,
                     Quaternion.identity
                 );
                 yield return new WaitForSeconds(waves[currentIndex].waitBetweenSpawn);

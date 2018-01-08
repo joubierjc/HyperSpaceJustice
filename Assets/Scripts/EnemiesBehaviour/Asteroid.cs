@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ConstantMover : MonoBehaviour {
+public class Asteroid : MonoBehaviour {
     public Vector3 direction;
 
     private StatsHolder stats;
