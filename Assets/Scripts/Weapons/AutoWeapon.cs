@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Weapons/Auto Weapon")]
+[CreateAssetMenu(menuName = "Weapons/New Auto Weapon")]
 public class AutoWeapon : Weapon {
     public override bool CheckFireKey() {
         return Input.GetKey(KeyCode.X); // TODO Input manager or smth

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17574152f7087b48aac67aee1a2c55c, type: 3}
+  m_Name: TinyAsteroidField
+  m_EditorClassIdentifier: 
+  title: The Tiny Asteroid Field
+  numberOfEnnemies: 5
+  waitBetweenSpawn: 2
+  enemies:
+  - {fileID: 1841566146596052, guid: 6a776bbcefe487c4a999e8e1b4c28998, type: 2}
