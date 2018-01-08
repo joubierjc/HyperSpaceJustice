@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
 
+    [HideInInspector]
+    public int enemiesCounter;
+
     public GameObject[] spawners;
     public float waitBeforeStart;
     public float waitBetweenWave;
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour {
         if (waves.Length > 0) {
             // On a des vagues, alors on les spawn.
             currentIndex = 0;
+            waitEnemiesDestruction = new WaitForSeconds(1);
             StartCoroutine(SpawnWaves());
         }
     }
@@ -43,6 +47,8 @@ public class GameManager : MonoBehaviour {
                 );
                 yield return new WaitForSeconds(waves[currentIndex].waitBetweenSpawn);
             }
+            // Avant de spawn une autre wave on attend que tous les ennemis soient détruits.
+            yield return new WaitWhile(() => enemiesCounter > 0);
             // On attend avant de spawn une nouvelle vague.
             yield return new WaitForSeconds(waitBetweenWave);
             // On incrémente le compteur de la wave.

@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour {
     private void Start () {
         stats = GetComponent<StatsHolder>();
         stats.OnZeroHealth = OnDeath;
+
+        GameManager.instance.enemiesCounter++;
 	}
 
     private void OnTriggerEnter(Collider other) {
@@ -21,5 +23,9 @@ public class EnemyController : MonoBehaviour {
 
     private void OnDeath() {
         Destroy(gameObject);
+    }
+
+    private void OnDestroy() {
+        GameManager.instance.enemiesCounter--;
     }
 }
