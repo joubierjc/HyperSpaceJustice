@@ -1,18 +1,24 @@
 fileFormatVersion: 2
-guid: 4797d0cb3826a37409df8b4c7ed1dea0
-timeCreated: 1509282447
+guid: a04f5b1ecb609524fad88d72ec14c3b6
+timeCreated: 1515621113
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
+    100000: //RootNode
+    100002: asteroid
+    100004: Camera
+    100006: Lamp
+    400000: //RootNode
+    400002: asteroid
+    400004: Camera
+    400006: Lamp
+    2000000: Camera
     2100000: palette
-    2300000: default
-    3300000: default
-    4300000: default
+    2300000: asteroid
+    3300000: asteroid
+    4300000: asteroid
+    10800000: Lamp
   externalObjects: {}
   materials:
     importMaterials: 1
