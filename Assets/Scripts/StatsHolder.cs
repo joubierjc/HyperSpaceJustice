@@ -22,6 +22,8 @@ public class StatsHolder : MonoBehaviour {
 
     public float damage; // TODO: does nothing right now
 
+    public float money;
+
     public float speed;
 
     // Events/Delegates

@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void OnDeath() {
+        GameManager.instance.money += stats.money;
         Destroy(gameObject);
     }
 

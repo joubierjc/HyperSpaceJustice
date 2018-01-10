@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
     // [HideInInspector]
     public int enemiesCounter;
 
+    public float money;
+
     public GameObject bossSpawner;
     public GameObject[] spawners;
     public float waitBeforeStart;
@@ -36,20 +38,24 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator SpawnWaves() {
-        // On attend avant de commencer à spawn les
+        // On attend avant de commencer à spawn les waves.
         yield return new WaitForSeconds(waitBeforeStart);
         while (true) {
-            for (int i = 0; i < waves[currentIndex].numberOfEnnemies; i++) {
+            var wave = waves[currentIndex];
+            for (int i = 0; i < wave.numberOfEnnemies; i++) {
                 Instantiate(
-                    waves[currentIndex].enemies[Random.Range(0, waves[currentIndex].enemies.Length)],
-                    !waves[currentIndex].bossWave ? spawners[Random.Range(0, spawners.Length)].transform.position : bossSpawner.transform.position,
+                    wave.enemies[Random.Range(0, wave.enemies.Length)],
+                    !wave.bossWave ? spawners[Random.Range(0, spawners.Length)].transform.position : bossSpawner.transform.position,
                     Quaternion.identity
                 );
-                yield return new WaitForSeconds(waves[currentIndex].waitBetweenSpawn);
+                yield return new WaitForSeconds(wave.waitBetweenSpawn);
             }
             // Avant de spawn une autre wave on attend que tous les ennemis soient détruits.
             yield return new WaitWhile(() => enemiesCounter > 0);
             // On attend avant de spawn une nouvelle vague.
+
+            // SHOPPING
+
             yield return new WaitForSeconds(waitBetweenWave);
             // On incrémente le compteur de la wave.
             currentIndex++;
@@ -59,5 +65,4 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-
 }
