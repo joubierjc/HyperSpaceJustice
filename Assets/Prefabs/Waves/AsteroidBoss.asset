@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17574152f7087b48aac67aee1a2c55c, type: 3}
   m_Name: AsteroidBoss
   m_EditorClassIdentifier: 
-  title: THE BIG ASTEROID
+  name: The BIG Asteroid
   bossWave: 1
   numberOfEnnemies: 1
   waitBetweenSpawn: 0

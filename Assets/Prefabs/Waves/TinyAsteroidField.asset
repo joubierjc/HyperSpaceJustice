@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17574152f7087b48aac67aee1a2c55c, type: 3}
   m_Name: TinyAsteroidField
   m_EditorClassIdentifier: 
-  title: Tiny Asteroid Field
+  name: A tiny Asteroid field
+  bossWave: 0
   numberOfEnnemies: 5
   waitBetweenSpawn: 2
   enemies:
