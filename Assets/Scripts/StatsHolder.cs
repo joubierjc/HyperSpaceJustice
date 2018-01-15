@@ -5,7 +5,6 @@ public class StatsHolder : MonoBehaviour {
     public bool isPlayer;
 
     public float maxHealth;
-
     [SerializeField]
     private float _health;
     public float Health {
@@ -20,12 +19,26 @@ public class StatsHolder : MonoBehaviour {
         }
     }
 
-    public float damage; // TODO: does nothing right now
+    public float damage;
+    public float speed;
 
+    [Header("Money dropped if paired with an EnemyController")]
     public float money;
 
-    public float speed;
+    public int level;
+    [SerializeField]
+    private float _experience;
+    public float Experience {
+        get {
+            return _experience;
+        }
+        set {
+            _experience = value;
+            OnExperienceChanged();
+        }
+    }
 
     // Events/Delegates
     public Action OnZeroHealth = () => { };
+    public Action OnExperienceChanged = () => { };
 }

@@ -18,7 +18,7 @@ public class WeaponSystem : MonoBehaviour {
 
     public void Fire() {
         // TODO: modify spawnshots to implements bonus damage or spread --> Later
-        weapon.SpawnShots(firePoints, stats.isPlayer);
+        weapon.SpawnShots(firePoints, stats.damage, stats.isPlayer);
     }
 
     public bool CanFire() {

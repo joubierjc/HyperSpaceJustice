@@ -10,7 +10,7 @@ public abstract class Weapon : ScriptableObject {
     public GameObject bullet;
 
     public abstract bool CheckFireKey();
-    public abstract void SpawnShots(Transform[] firePoints, bool isFromPlayer);
+    public abstract void SpawnShots(Transform[] firePoints, float damage, bool isFromPlayer);
 
     public float Interval() {
         return 1f / attacksPerSecond;

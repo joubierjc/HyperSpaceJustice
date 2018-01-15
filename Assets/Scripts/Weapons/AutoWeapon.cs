@@ -6,7 +6,7 @@ public class AutoWeapon : Weapon {
         return Input.GetKey(KeyCode.X); // TODO Input manager or smth
     }
 
-    public override void SpawnShots(Transform[] firePoints, bool isFromPlayer = false) {
+    public override void SpawnShots(Transform[] firePoints, float damage, bool isFromPlayer = false) {
         for (int i = 0; i < firePoints.Length; i++) {
             for (int j = 0; j < bulletsPerAttack; j++) {
                 var point = firePoints[i];
@@ -15,7 +15,9 @@ public class AutoWeapon : Weapon {
                     point.position,
                     Quaternion.Euler(point.eulerAngles.x, point.eulerAngles.y, Random.Range(point.eulerAngles.z - spread, point.eulerAngles.z + spread))
                 );
-                b.GetComponent<BulletController>().isFromPlayer = isFromPlayer;
+                var controller = b.GetComponent<BulletController>();
+                controller.isFromPlayer = isFromPlayer;
+                controller.damage += damage;
             }
         }
     }
