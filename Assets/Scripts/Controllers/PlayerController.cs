@@ -3,6 +3,11 @@
 public class PlayerController : MonoBehaviour {
     public Border border;
 
+    public float maxHealth;
+    public float health;
+    public float damage;
+    public float speed;
+
     private StatsHolder stats;
     private WeaponSystem weapsys;
 

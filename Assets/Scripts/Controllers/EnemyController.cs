@@ -2,6 +2,11 @@
 
 public class EnemyController : MonoBehaviour {
 
+    public float maxHealth;
+    public float health;
+    public float damage;
+    public float speed;
+
     private StatsHolder stats;
 
     private void Start () {
