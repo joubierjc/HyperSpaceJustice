@@ -8,14 +8,33 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private float speed = 25f;
 	[SerializeField]
+	private float movementLerp = 0.5f;
+
+	[Header("Combat settings")]
+	[SerializeField]
+	private EnergyWeapon primaryWeapon;
+	[SerializeField]
+	private MissileWeapon secondaryWeapon;
+	[SerializeField]
+	private Transform aiming;
+	[SerializeField]
+	private Transform shotSpawn;
+
+	[Header("Roll settings")]
+	[SerializeField]
 	private float rollDuration = 0.5f;
 	[SerializeField]
+	private float rollCoolDown = 0.1f;
+	[SerializeField]
 	private float rollSpeed = 40f;
+	[SerializeField]
+	private float rollSlowFactor = 0f;
 
 	private Vector3 movement;
 
-	private bool isRolling = false;
-	private float rollTimer = 0f;
+	private bool dodging = false;
+	private bool primaryShooting = false;
+	private bool secondaryShooting = false;
 
 	private Rigidbody rb;
 	private Camera cam;
@@ -28,40 +47,71 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void Update() {
-		// TODO LATER: custom inputs
+
+		// COMBAT
 		var direction = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
 		var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); // TODO rotate l'enfant qui s'occupera du ShotSpawn
+		aiming.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+		if (Input.GetButtonDown("Fire2") && !secondaryShooting) {
+			StartCoroutine(SecondaryFireCoroutine());
+		}
+		else if (Input.GetButtonDown("Fire1") && !primaryShooting) {
+			StartCoroutine(PrimaryFireCoroutine());
+		}
+
+		// MOVEMENT
+		movement = GetDirection();
+
+		// DODGE
+		if (Input.GetButtonDown("Jump") && !dodging) {
+			StartCoroutine(DodgeCoroutine());
+		}
+
 	}
 
 	private void FixedUpdate() {
-		// TODO LATER: custom inputs
-		if (isRolling) {
-			rollTimer += Time.fixedDeltaTime;
-			if (rollTimer >= rollDuration) {
-				isRolling = false;
-			}
+		if (dodging) {
 			return;
 		}
 
-		isRolling = Input.GetButton("Jump");
-
-		var horizontal = Input.GetAxis("Horizontal");
-		var vertical = Input.GetAxis("Vertical");
-
-		movement = new Vector3(horizontal, vertical);
 		if (movement.magnitude > 1f) {
 			movement.Normalize();
 		}
 
-		if (isRolling) {
-			rollTimer = 0f;
-			if (movement.x == 0f && movement.y == 0f) {
-				movement.x = 1f;
-			}
+		rb.velocity = Vector3.Lerp(rb.velocity, movement * speed, movementLerp);
+	}
+
+	private Vector3 GetDirection() {
+		return new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+	}
+
+	IEnumerator PrimaryFireCoroutine() {
+		yield break;
+	}
+
+	IEnumerator SecondaryFireCoroutine() {
+		yield break;
+	}
+
+	IEnumerator DodgeCoroutine() {
+		dodging = true;
+
+		var movement = GetDirection();
+		if (movement.x == 0f && movement.y == 0f) {
+			movement = Vector3.right;
 		}
 
-		rb.velocity = isRolling ? movement.normalized * rollSpeed : movement * speed;
+		rb.velocity = movement.normalized * rollSpeed;
+
+		yield return new WaitForSeconds(rollDuration);
+
+		rb.velocity *= rollSlowFactor;
+		// TODO: break immunity
+
+		yield return new WaitForSeconds(rollCoolDown);
+
+		dodging = false;
 	}
 
 }
