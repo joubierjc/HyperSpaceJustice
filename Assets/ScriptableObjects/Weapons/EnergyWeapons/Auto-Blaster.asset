@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60649222bb9ee064aa1a962ee9d321a9, type: 3}
+  m_Name: Auto-Blaster
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 1384406147535182, guid: 4b0ddffc4af94b3448a45759ceccdcdd, type: 2}
+  WindUpTime: 0
+  AttackRate: 0.2
+  AccuracyLoss: 0

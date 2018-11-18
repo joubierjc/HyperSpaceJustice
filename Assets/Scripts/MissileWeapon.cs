@@ -2,10 +2,5 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class MissileWeapon : Weapon {
-
-	public override void Shoot() {
-
-	}
-}
+[CreateAssetMenu(menuName = "Weapons/New Missile Weapon")]
+public class MissileWeapon : Weapon { }

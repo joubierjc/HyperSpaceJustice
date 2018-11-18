@@ -87,11 +87,35 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	IEnumerator PrimaryFireCoroutine() {
-		yield break;
+		var windUpTimer = 0f;
+		while (Input.GetButton("Fire1") && windUpTimer < primaryWeapon.WindUpTime) {
+			yield return 0;
+		}
+
+		while (Input.GetButton("Fire1")) {
+			primaryWeapon.Shoot(shotSpawn);
+			var shotTimer = 0f;
+			while (Input.GetButton("Fire1") && shotTimer < primaryWeapon.AttackRate) {
+				shotTimer += Time.deltaTime;
+				yield return 0;
+			}
+		}
 	}
 
 	IEnumerator SecondaryFireCoroutine() {
-		yield break;
+		var windUpTimer = 0f;
+		while (Input.GetButton("Fire2") && windUpTimer < secondaryWeapon.WindUpTime) {
+			yield return 0;
+		}
+
+		while (Input.GetButton("Fire2")) {
+			secondaryWeapon.Shoot(shotSpawn);
+			var shotTimer = 0f;
+			while (Input.GetButton("Fire2") && shotTimer < secondaryWeapon.AttackRate) {
+				shotTimer += Time.deltaTime;
+				yield return 0;
+			}
+		}
 	}
 
 	IEnumerator DodgeCoroutine() {
@@ -113,5 +137,4 @@ public class PlayerController : MonoBehaviour {
 
 		dodging = false;
 	}
-
 }
