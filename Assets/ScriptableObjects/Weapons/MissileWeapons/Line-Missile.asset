@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc3feef9528c3540bca6958f0c56ab8, type: 3}
   m_Name: Line-Missile
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 1058261623038706, guid: 2badb6d408783ac4797a94e908b7ce04, type: 2}
+  Projectile: {fileID: 1220697614867228, guid: 821e1ed867f34fd48a146a39e63efc0d, type: 2}
   WindUpTime: 0
-  AttackRate: 0.5
+  AttackRate: 0.8
   AccuracyLoss: 0

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField]
-	private float speed = 25f;
+	private float speed = 35f;
 	[SerializeField]
 	private float movementLerp = 0.5f;
 
@@ -22,13 +22,13 @@ public class PlayerController : MonoBehaviour {
 
 	[Header("Roll settings")]
 	[SerializeField]
-	private float rollDuration = 0.5f;
+	private float rollDuration = 0.25f;
 	[SerializeField]
-	private float rollCoolDown = 0.1f;
+	private float rollCoolDown = 0.2f;
 	[SerializeField]
-	private float rollSpeed = 40f;
+	private float rollSpeed = 55f;
 	[SerializeField]
-	private float rollSlowFactor = 0f;
+	private float rollSlowFactor = 0.1f;
 
 	private Vector3 movement;
 
