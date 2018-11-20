@@ -152,11 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114604431912720154, guid: d5522a22efff6a14295ab95473403dc2,
-        type: 2}
-      propertyPath: shootingParticle
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5522a22efff6a14295ab95473403dc2, type: 2}
   m_IsPrefabAsset: 0

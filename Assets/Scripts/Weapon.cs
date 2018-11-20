@@ -4,14 +4,10 @@ using UnityEngine;
 
 public abstract class Weapon : ScriptableObject {
 	public GameObject Projectile;
-	public float WindUpTime;
-	public float AttackRate;
+	public float Damage;
+	public float CoolDown;
 	public float AccuracyLoss;
 
-	public virtual void Shoot(Transform origin) {
-		var rotationEuler = origin.rotation.eulerAngles;
-		rotationEuler.z = Random.Range(rotationEuler.z - AccuracyLoss, rotationEuler.z + AccuracyLoss);
-
-		Instantiate(Projectile, origin.position, Quaternion.Euler(rotationEuler));
-	}
+	public abstract void Init(GameObject obj);
+	public abstract void Trigger();
 }

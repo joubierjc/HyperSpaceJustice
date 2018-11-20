@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Auto-Blaster
   m_EditorClassIdentifier: 
   Projectile: {fileID: 1220697614867228, guid: 821e1ed867f34fd48a146a39e63efc0d, type: 2}
-  WindUpTime: 0
-  AttackRate: 0.2
+  Damage: 0
+  CoolDown: 0.2
   AccuracyLoss: 1
+  EnergyGenAmout: 10

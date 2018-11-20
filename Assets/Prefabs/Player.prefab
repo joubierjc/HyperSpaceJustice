@@ -84,6 +84,8 @@ GameObject:
   - component: {fileID: 136711326660060868}
   - component: {fileID: 54018275422174670}
   - component: {fileID: 114604431912720154}
+  - component: {fileID: 114985667027408390}
+  - component: {fileID: 114477445200261290}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -290,6 +292,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &114477445200261290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869734187166418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad27b65038cd2e14e892ef936276ec2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponButtonAxisName: Fire1
+  weapon: {fileID: 11400000, guid: 068c241caf9fcb9419fa41b0d89fbd66, type: 2}
+  weaponHolder: {fileID: 1869734187166418}
 --- !u!114 &114604431912720154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,7 +327,21 @@ MonoBehaviour:
   rollCoolDown: 0.2
   rollSpeed: 55
   rollSlowFactor: 0.1
-  shootingParticle: {fileID: 0}
+--- !u!114 &114985667027408390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869734187166418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 0}
+  AccuracyLoss: 0
+  Damage: 0
+  shotSpawn: {fileID: 4281736090833364}
 --- !u!136 &136711326660060868
 CapsuleCollider:
   m_ObjectHideFlags: 1

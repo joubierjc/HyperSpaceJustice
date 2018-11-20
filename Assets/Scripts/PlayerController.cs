@@ -9,16 +9,8 @@ public class PlayerController : MonoBehaviour {
 	private float speed = 35f;
 	[SerializeField]
 	private float movementLerp = 0.5f;
-
-	[Header("Combat settings")]
-	[SerializeField]
-	private EnergyWeapon primaryWeapon;
-	[SerializeField]
-	private MissileWeapon secondaryWeapon;
 	[SerializeField]
 	private Transform aiming;
-	[SerializeField]
-	private Transform shotSpawn;
 
 	[Header("Roll settings")]
 	[SerializeField]
@@ -48,17 +40,10 @@ public class PlayerController : MonoBehaviour {
 
 	private void Update() {
 
-		// COMBAT
+		// AIMING
 		var direction = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
 		var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 		aiming.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-		if (Input.GetButtonDown("Fire2") && !secondaryShooting) {
-			StartCoroutine(SecondaryFireCoroutine());
-		}
-		else if (Input.GetButtonDown("Fire1") && !primaryShooting) {
-			StartCoroutine(PrimaryFireCoroutine());
-		}
 
 		// MOVEMENT
 		movement = GetDirection();
@@ -86,40 +71,9 @@ public class PlayerController : MonoBehaviour {
 		return new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 	}
 
-	IEnumerator PrimaryFireCoroutine() {
-		var windUpTimer = 0f;
-		while (Input.GetButton("Fire1") && windUpTimer < primaryWeapon.WindUpTime) {
-			yield return 0;
-		}
-
-		while (Input.GetButton("Fire1")) {
-			primaryWeapon.Shoot(shotSpawn);
-			var shotTimer = 0f;
-			while (Input.GetButton("Fire1") && shotTimer < primaryWeapon.AttackRate) {
-				shotTimer += Time.deltaTime;
-				yield return 0;
-			}
-		}
-	}
-
-	IEnumerator SecondaryFireCoroutine() {
-		var windUpTimer = 0f;
-		while (Input.GetButton("Fire2") && windUpTimer < secondaryWeapon.WindUpTime) {
-			yield return 0;
-		}
-
-		while (Input.GetButton("Fire2")) {
-			secondaryWeapon.Shoot(shotSpawn);
-			var shotTimer = 0f;
-			while (Input.GetButton("Fire2") && shotTimer < secondaryWeapon.AttackRate) {
-				shotTimer += Time.deltaTime;
-				yield return 0;
-			}
-		}
-	}
-
 	IEnumerator DodgeCoroutine() {
 		dodging = true;
+		// TODO start bullet/missile/laser immunity
 
 		var movement = GetDirection();
 		if (movement.x == 0f && movement.y == 0f) {
@@ -131,7 +85,8 @@ public class PlayerController : MonoBehaviour {
 		yield return new WaitForSeconds(rollDuration);
 
 		rb.velocity *= rollSlowFactor;
-		// TODO: break immunity
+
+		// TODO: stop bullet/missile/laser immunity
 
 		yield return new WaitForSeconds(rollCoolDown);
 
