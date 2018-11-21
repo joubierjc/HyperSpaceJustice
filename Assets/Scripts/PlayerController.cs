@@ -12,6 +12,14 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private Transform aiming;
 
+	[Header("Combat settings")]
+	[SerializeField]
+	private WeaponCoolDown generatorWeapon;
+	[SerializeField]
+	private WeaponCoolDown spenderWeapon;
+	[SerializeField]
+	private WeaponCoolDown specialWeapon;
+
 	[Header("Roll settings")]
 	[SerializeField]
 	private float rollDuration = 0.25f;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProjectileShootTriggerable : MonoBehaviour {
 
-	[HideInInspector]
 	public GameObject Projectile;
 	[HideInInspector]
 	public float AccuracyLoss;

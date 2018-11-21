@@ -15,10 +15,10 @@ public class WeaponCoolDown : MonoBehaviour {
 	private float coolDownTimeLeft;
 
 	void Start() {
-		Init(weapon);
+		Init();
 	}
 
-	public void Init(Weapon selectedWeapon) {
+	public void Init() {
 		//myButtonImage = GetComponent<Image>();
 		//abilitySource = GetComponent<AudioSource>();
 		//myButtonImage.sprite = weapon.aSprite;
