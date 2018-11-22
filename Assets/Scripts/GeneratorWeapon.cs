@@ -12,9 +12,7 @@ public class GeneratorWeapon : Weapon {
 	public override void Init(GameObject obj) {
 		projShoot = obj.GetComponent<ProjectileShootTriggerable>();
 
-		projShoot.Projectile = Projectile;
-		projShoot.AccuracyLoss = AccuracyLoss;
-		projShoot.Damage = Damage;
+		projShoot.Init(this);
 	}
 
 	public override void Trigger() {

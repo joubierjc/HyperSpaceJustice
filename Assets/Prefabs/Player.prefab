@@ -394,9 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
-  AccuracyLoss: 0
-  Damage: 0
   shotSpawn: {fileID: 4281736090833364}
 --- !u!114 &114172660308751208
 MonoBehaviour:
@@ -409,9 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
-  AccuracyLoss: 0
-  Damage: 0
   shotSpawn: {fileID: 4306069024123830}
 --- !u!114 &114286802433678790
 MonoBehaviour:
@@ -437,9 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
-  AccuracyLoss: 0
-  Damage: 0
   shotSpawn: {fileID: 4281736090833364}
 --- !u!114 &114604431912720154
 MonoBehaviour:

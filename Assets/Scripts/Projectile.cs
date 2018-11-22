@@ -11,9 +11,12 @@ public class Projectile : MonoBehaviour {
 	[SerializeField]
 	private float timeBeforeDisable = 5f;
 	[SerializeField]
-	private UnityEvent onSpawn;
+	private AdditionnalProjectile[] onInitSpawn;
 	[SerializeField]
-	private UnityEvent onDisable;
+	private AdditionnalProjectile[] onDisableSpawn;
+
+	private Weapon weaponRef;
+	private LayerMask projectileLayerRef;
 
 	private Rigidbody rb;
 	private new Transform transform;
@@ -24,15 +27,32 @@ public class Projectile : MonoBehaviour {
 	}
 
 	private void OnEnable() {
-		rb.velocity = transform.TransformVector(Vector3.right) * speed;
+		rb.velocity = transform.right * speed;
 		StartCoroutine(DisableCoroutine());
-		onSpawn.Invoke();
 	}
 
+	private void OnDisable() {
+		for (int i = 0; i < onDisableSpawn.Length; i++) {
+			var clonedBullet = Instantiate(onDisableSpawn[i].Projectile, onDisableSpawn[i].ShotSpawn.position, onDisableSpawn[i].ShotSpawn.rotation);
+			var projectile = clonedBullet.GetComponent<Projectile>();
+			projectile.Init(weaponRef, projectileLayerRef);
+		}
+	}
 
 	IEnumerator DisableCoroutine() {
 		yield return new WaitForSeconds(timeBeforeDisable);
-		onDisable.Invoke();
 		Destroy(gameObject); // TODO remplacer par disable, après les objects pool
 	}
+
+	public void Init(Weapon weapon, LayerMask projectileLayer) {
+		weaponRef = weapon;
+		projectileLayerRef = projectileLayer;
+		for (int i = 0; i < onInitSpawn.Length; i++) {
+			var clonedBullet = Instantiate(onInitSpawn[i].Projectile, onInitSpawn[i].ShotSpawn.position, onInitSpawn[i].ShotSpawn.rotation);
+			var projectile = clonedBullet.GetComponent<Projectile>();
+			projectile.Init(weaponRef, projectileLayerRef);
+		}
+	}
+
+
 }

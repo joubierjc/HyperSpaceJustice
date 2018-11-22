@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class ProjectileShootTriggerable : MonoBehaviour {
 
-	public GameObject Projectile;
-	[HideInInspector]
-	public float AccuracyLoss;
-	[HideInInspector]
-	public float Damage;
-
 	[SerializeField]
 	private Transform shotSpawn;
 
+	private Weapon weaponRef;
+	private LayerMask projectileLayerRef;
+
+	public void Init(Weapon weapon) {
+		weaponRef = weapon;
+		projectileLayerRef = weapon.ProjectileLayerRef;
+	}
+
 	public void Shoot() {
 		var rotationEuler = shotSpawn.rotation.eulerAngles;
-		rotationEuler.z = Random.Range(rotationEuler.z - AccuracyLoss, rotationEuler.z + AccuracyLoss);
-		var clonedBullet = Instantiate(Projectile, shotSpawn.position, Quaternion.Euler(rotationEuler));
+		rotationEuler.z = Random.Range(rotationEuler.z - weaponRef.AccuracyLoss, rotationEuler.z + weaponRef.AccuracyLoss);
+		var clonedBullet = Instantiate(weaponRef.Projectile, shotSpawn.position, Quaternion.Euler(rotationEuler));
+
+		var projectile = clonedBullet.GetComponent<Projectile>();
+		projectile.Init(weaponRef, projectileLayerRef);
 		// more stuff with cloned bullet
 	}
 }

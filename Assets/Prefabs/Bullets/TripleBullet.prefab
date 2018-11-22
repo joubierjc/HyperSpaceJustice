@@ -274,30 +274,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 65
   timeBeforeDisable: 5
-  onSpawn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114066313355239388}
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114933650709396678}
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  onInitSpawn:
+  - Projectile: {fileID: 1220697614867228, guid: 821e1ed867f34fd48a146a39e63efc0d,
+      type: 2}
+    ShotSpawn: {fileID: 4495663367882268}
+  - Projectile: {fileID: 1220697614867228, guid: 821e1ed867f34fd48a146a39e63efc0d,
+      type: 2}
+    ShotSpawn: {fileID: 4951886229189720}
+  onDisableSpawn: []
