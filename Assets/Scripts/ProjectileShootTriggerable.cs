@@ -8,7 +8,7 @@ public class ProjectileShootTriggerable : MonoBehaviour {
 	private Transform shotSpawn;
 
 	private Weapon weaponRef;
-	private LayerMask projectileLayerRef;
+	private string projectileLayerRef;
 
 	public void Init(Weapon weapon) {
 		weaponRef = weapon;

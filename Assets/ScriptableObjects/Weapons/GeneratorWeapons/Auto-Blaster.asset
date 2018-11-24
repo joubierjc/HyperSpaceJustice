@@ -15,4 +15,5 @@ MonoBehaviour:
   Damage: 0
   CoolDown: 0.2
   AccuracyLoss: 1
+  ProjectileLayerRef: Default
   EnergyGenAmout: 10
