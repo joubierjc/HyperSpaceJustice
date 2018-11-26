@@ -5,16 +5,16 @@ using UnityEngine;
 
 public static class EntityTracker {
 
-	private static Dictionary<SearchFilter, List<GameObject>> entities = new Dictionary<SearchFilter, List<GameObject>>();
+	private static Dictionary<EntityType, List<GameObject>> entities = new Dictionary<EntityType, List<GameObject>>();
 
-	public static IEnumerable<GameObject> Find(SearchFilter filter) {
+	public static IEnumerable<GameObject> Find(EntityType filter) {
 		if (entities.ContainsKey(filter)) {
 			return entities[filter];
 		}
 		return Enumerable.Empty<GameObject>();
 	}
 
-	public static void Register(SearchFilter filter, GameObject obj) {
+	public static void Register(EntityType filter, GameObject obj) {
 		if (entities.ContainsKey(filter)) {
 			entities[filter].Add(obj);
 			return;
@@ -22,7 +22,7 @@ public static class EntityTracker {
 		entities.Add(filter, new List<GameObject> { obj });
 	}
 
-	public static void Unregister(SearchFilter filter, GameObject obj) {
+	public static void Unregister(EntityType filter, GameObject obj) {
 		if (entities.ContainsKey(filter)) {
 			entities[filter].Remove(obj);
 		}

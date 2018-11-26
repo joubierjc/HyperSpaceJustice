@@ -11,7 +11,7 @@ public enum DamageType {
 	Piercing
 }
 
-public enum SearchFilter {
+public enum EntityType {
 	Player,
 	Enemy
 }

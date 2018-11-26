@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class HomingProjectile : Projectile {
 
 	[SerializeField]
-	private SearchFilter searchFilter;
+	private EntityType searchFilter;
 	[SerializeField]
 	private float searchRadius = 5f;
 

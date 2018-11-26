@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ec1c9cbb7440e48b68ef82cce95133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 35
+  speed: 40
   movementLerp: 0.5
   aiming: {fileID: 4306069024123830}
   generatorWeapon: {fileID: 114286802433678790}
@@ -451,7 +451,7 @@ MonoBehaviour:
   specialWeapon: {fileID: 114987293024283248}
   rollDuration: 0.25
   rollCoolDown: 0.2
-  rollSpeed: 55
+  rollSpeed: 60
   rollSlowFactor: 0.1
 --- !u!114 &114692742494509736
 MonoBehaviour:
