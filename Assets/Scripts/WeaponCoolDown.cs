@@ -8,11 +8,15 @@ public class WeaponCoolDown : MonoBehaviour {
 
 	[SerializeField]
 	private Weapon weapon;
+	[SerializeField]
+	private Transform shotSpawn;
 	//private AudioSource abilitySource;
 
 	private float coolDownDuration;
 	private float nextReadyTime;
 	private float coolDownTimeLeft;
+
+	private new Transform transform;
 
 	void Start() {
 		Init();
@@ -24,7 +28,6 @@ public class WeaponCoolDown : MonoBehaviour {
 		//myButtonImage.sprite = weapon.aSprite;
 		//darkMask.sprite = weapon.aSprite;
 		coolDownDuration = weapon.CoolDown;
-		weapon.Init(gameObject);
 		//WeaponReady();
 	}
 
@@ -40,12 +43,12 @@ public class WeaponCoolDown : MonoBehaviour {
 		else {
 			CoolDown();
 		}
-	//}
+	}
 
 	//private void WeaponReady() {
 	//	coolDownTextDisplay.enabled = false;
 	//	darkMask.enabled = false;
-	}
+	//}
 
 	private void CoolDown() {
 		coolDownTimeLeft -= Time.deltaTime;
@@ -62,6 +65,6 @@ public class WeaponCoolDown : MonoBehaviour {
 
 		//abilitySource.clip = weapon.aSound;
 		//abilitySource.Play();
-		weapon.Trigger();
+		weapon.Trigger(shotSpawn);
 	}
 }

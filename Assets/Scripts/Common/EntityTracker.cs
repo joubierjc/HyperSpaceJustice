@@ -7,11 +7,11 @@ public static class EntityTracker {
 
 	private static Dictionary<EntityType, List<GameObject>> entities = new Dictionary<EntityType, List<GameObject>>();
 
-	public static IEnumerable<GameObject> Find(EntityType filter) {
+	public static GameObject[] Find(EntityType filter) {
 		if (entities.ContainsKey(filter)) {
-			return entities[filter];
+			return entities[filter].ToArray();
 		}
-		return Enumerable.Empty<GameObject>();
+		return new GameObject[] { };
 	}
 
 	public static void Register(EntityType filter, GameObject obj) {

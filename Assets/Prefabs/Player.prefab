@@ -34,7 +34,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4783513446852008}
-  - component: {fileID: 114481036605317268}
   - component: {fileID: 114286802433678790}
   m_Layer: 0
   m_Name: WeaponSlot-1
@@ -51,7 +50,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4448605623983238}
-  - component: {fileID: 114172660308751208}
   - component: {fileID: 114987293024283248}
   m_Layer: 0
   m_Name: WeaponSlot-3
@@ -115,7 +113,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4913315934526806}
-  - component: {fileID: 114100582947745726}
   - component: {fileID: 114692742494509736}
   m_Layer: 0
   m_Name: WeaponSlot-2
@@ -135,6 +132,7 @@ GameObject:
   - component: {fileID: 136711326660060868}
   - component: {fileID: 54018275422174670}
   - component: {fileID: 114604431912720154}
+  - component: {fileID: 114949484933451504}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -383,30 +381,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114100582947745726
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1864495106598816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotSpawn: {fileID: 4281736090833364}
---- !u!114 &114172660308751208
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1426503205856914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotSpawn: {fileID: 4306069024123830}
 --- !u!114 &114286802433678790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,17 +394,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponButtonAxisName: Fire1
   weapon: {fileID: 11400000, guid: 068c241caf9fcb9419fa41b0d89fbd66, type: 2}
---- !u!114 &114481036605317268
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1370353483698160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   shotSpawn: {fileID: 4281736090833364}
 --- !u!114 &114604431912720154
 MonoBehaviour:
@@ -466,6 +429,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponButtonAxisName: Fire2
   weapon: {fileID: 11400000, guid: c82ccd5766f03be458c6e3671a07c627, type: 2}
+  shotSpawn: {fileID: 4281736090833364}
+--- !u!114 &114949484933451504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869734187166418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7890781ab86ad314287ca286a8bebd78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter: 0
 --- !u!114 &114987293024283248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,6 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponButtonAxisName: Fire3
   weapon: {fileID: 11400000, guid: 3c69881c52b503d4d83bcf4bc0a42daa, type: 2}
+  shotSpawn: {fileID: 4281736090833364}
 --- !u!136 &136711326660060868
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -187,4 +187,6 @@ MonoBehaviour:
   onInitSpawn: []
   onDisableSpawn: []
   searchFilter: 1
-  searchRadius: 5
+  rotationSpeed: 360
+  searchRadius: 100
+  searchRefreshRate: 0.1

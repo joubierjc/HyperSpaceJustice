@@ -69,7 +69,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4951886229189720}
-  - component: {fileID: 114933650709396678}
   m_Layer: 0
   m_Name: ShotSpawn-2
   m_TagString: Untagged
@@ -85,7 +84,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4495663367882268}
-  - component: {fileID: 114066313355239388}
   m_Layer: 0
   m_Name: ShotSpawn-1
   m_TagString: Untagged
@@ -231,36 +229,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114066313355239388
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1639992527349926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Projectile: {fileID: 1220697614867228, guid: 821e1ed867f34fd48a146a39e63efc0d, type: 2}
-  AccuracyLoss: 0
-  Damage: 0
-  shotSpawn: {fileID: 4495663367882268}
---- !u!114 &114933650709396678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526172303216832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b21fbeccb354164185a9b783060bcde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Projectile: {fileID: 1220697614867228, guid: 821e1ed867f34fd48a146a39e63efc0d, type: 2}
-  AccuracyLoss: 0
-  Damage: 0
-  shotSpawn: {fileID: 4951886229189720}
 --- !u!114 &114951144792505288
 MonoBehaviour:
   m_ObjectHideFlags: 1

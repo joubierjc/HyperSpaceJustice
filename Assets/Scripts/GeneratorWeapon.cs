@@ -7,15 +7,12 @@ public class GeneratorWeapon : Weapon {
 
 	public float EnergyGenAmout = 10f;
 
-	private ProjectileShootTriggerable projShoot;
+	public override void Trigger(Transform shotSpawn) {
+		var rotationEuler = shotSpawn.rotation.eulerAngles;
+		rotationEuler.z = Random.Range(rotationEuler.z - AccuracyLoss, rotationEuler.z + AccuracyLoss);
+		var clonedBullet = Instantiate(Projectile, shotSpawn.position, Quaternion.Euler(rotationEuler));
 
-	public override void Init(GameObject obj) {
-		projShoot = obj.GetComponent<ProjectileShootTriggerable>();
-
-		projShoot.Init(this);
-	}
-
-	public override void Trigger() {
-		projShoot.Shoot();
+		var projectile = clonedBullet.GetComponent<Projectile>();
+		projectile.Init(this);
 	}
 }

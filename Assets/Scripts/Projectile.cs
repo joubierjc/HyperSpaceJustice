@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour {
 	protected AdditionnalProjectile[] onDisableSpawn;
 
 	protected Weapon weaponRef;
-	protected string projectileLayerRef;
 
 	protected Rigidbody rb;
 	protected new Transform transform;
@@ -35,7 +34,7 @@ public class Projectile : MonoBehaviour {
 		for (int i = 0; i < onDisableSpawn.Length; i++) {
 			var clonedBullet = Instantiate(onDisableSpawn[i].Projectile, onDisableSpawn[i].ShotSpawn.position, onDisableSpawn[i].ShotSpawn.rotation);
 			var projectile = clonedBullet.GetComponent<Projectile>();
-			projectile.Init(weaponRef, projectileLayerRef);
+			projectile.Init(weaponRef);
 		}
 	}
 
@@ -44,16 +43,15 @@ public class Projectile : MonoBehaviour {
 		Destroy(gameObject); // TODO remplacer par disable, après les objects pool
 	}
 
-	public virtual void Init(Weapon weapon, string projectileLayer) {
+	public virtual void Init(Weapon weapon) {
 		weaponRef = weapon;
-		projectileLayerRef = projectileLayer;
 
-		gameObject.layer = LayerMask.NameToLayer(projectileLayerRef);
+		gameObject.layer = LayerMask.NameToLayer(weapon.ProjectileLayerRef);
 
 		for (int i = 0; i < onInitSpawn.Length; i++) {
 			var clonedBullet = Instantiate(onInitSpawn[i].Projectile, onInitSpawn[i].ShotSpawn.position, onInitSpawn[i].ShotSpawn.rotation);
 			var projectile = clonedBullet.GetComponent<Projectile>();
-			projectile.Init(weaponRef, projectileLayerRef);
+			projectile.Init(weaponRef);
 		}
 	}
 

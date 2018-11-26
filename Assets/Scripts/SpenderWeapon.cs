@@ -4,11 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapons/New Spender Weapon")]
 public class SpenderWeapon : Weapon {
-	public override void Init(GameObject obj) {
-		throw new System.NotImplementedException();
-	}
-
-	public override void Trigger() {
+	public override void Trigger(Transform shotSpawn) {
 		throw new System.NotImplementedException();
 	}
 }

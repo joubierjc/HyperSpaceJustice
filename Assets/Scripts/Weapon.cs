@@ -9,6 +9,5 @@ public abstract class Weapon : ScriptableObject {
 	public float AccuracyLoss;
 	public string ProjectileLayerRef = "Default";
 
-	public abstract void Init(GameObject obj);
-	public abstract void Trigger();
+	public abstract void Trigger(Transform shotSpawn);
 }
